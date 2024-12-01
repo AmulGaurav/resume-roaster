@@ -90,6 +90,6 @@ This project is a part of the Brainrot Hackathon, a fun-themed event encouraging
 ## ✨ Acknowledgments
 
 - Brainrot Hackathon for the inspiration.
-- Special thanks to our OG **[Audrey Chan](https://www.linkedin.com/in/audrey-chen-tech/)**
+- Special thanks to our OG **[Audrey Chan](https://www.linkedin.com/in/audrey-chen-tech/)** for organizing this BrainRot! 🔥
 - Google Gemini API for making the roasting possible.
 - Meme culture and Gen Z for the vibe check.
