@@ -7,11 +7,22 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const app = express();
 const port = 3000;
 
-const FRONTEND_URL = "http://localhost:5173";
+const allowedOrigins = [
+  "https://resume-roaster-one.vercel.app/",
+  "https://resume-roaster-git-main-amulgauravs-projects.vercel.app/",
+  "https://resume-roaster-qe8u74bgb-amulgauravs-projects.vercel.app/",
+];
 
 app.use(
   cors({
-    origin: FRONTEND_URL,
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        // Allow requests with no origin (e.g., mobile apps, Postman) or in the allowed list
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST"],
     credentials: true, // Include cookies if needed
   })
