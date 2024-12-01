@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import axios from "axios";
@@ -59,6 +59,14 @@ const LandingPage: React.FC = () => {
     }
   };
 
+  const initialRequest = async () => {
+    await axios("https://resume-roaster.onrender.com/");
+  };
+
+  useEffect(() => {
+    initialRequest();
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#1a0b2e] via-[#2c1352] to-[#4a1b5a] flex items-center justify-center p-4 relative overflow-hidden">
       <div className="absolute inset-0 bg-noise opacity-20 pointer-events-none"></div>
@@ -68,13 +76,23 @@ const LandingPage: React.FC = () => {
 
       <Card className="w-full max-w-md sm:max-w-lg bg-white/10 backdrop-blur-lg border-purple-700/50 text-white relative z-10 shadow-2xl shadow-purple-900/50 p-0 sm:p-4">
         <CardHeader className="text-center space-y-4">
+          {error && (
+            <div className="text-red-500 font-medium">
+              <strong>Note:</strong> If request fails at first, please reload
+              the page after 30 seconds & try again 😃
+            </div>
+          )}
+
           <CardTitle className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 animate-text">
             BrainRot Resume <span className="text-white">💀</span>
           </CardTitle>
+
           <p className="text-purple-200 mt-2 font-medium text-base">
-            Sigma Skibidi Mode: Absolutely Destroy Your Career Vibes! 🚀
+            <span className="text-yellow-300">Sigma Skibidi Mode:</span>{" "}
+            Absolutely Destroy Your Career Vibes! 🚀
           </p>
         </CardHeader>
+
         <CardContent>
           <div className="space-y-6">
             <div className="border-2 border-dashed border-purple-600/50 rounded-lg p-6 text-center group transition-all duration-300 hover:border-pink-500">

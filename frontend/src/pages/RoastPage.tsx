@@ -4,7 +4,6 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { uploadedFileState, roastResultState } from "@/state/atoms/resumeAtoms";
-import { Flame } from "lucide-react";
 
 const RoastPage: React.FC = () => {
   const uploadedFile = useRecoilValue(uploadedFileState);
